@@ -175,7 +175,7 @@ export default function Social() {
               </div>
               <div>
                 <h4 className="text-white font-medium text-sm sm:text-base">Email</h4>
-                <p className="text-white/70 text-xs sm:text-sm">gabriel@example.com</p>
+                <p className="text-white/70 text-xs sm:text-sm">gabrielpaiva.jm@gmail.com</p>
               </div>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
@@ -191,7 +191,7 @@ export default function Social() {
               </div>
               <div>
                 <h4 className="text-white font-medium text-sm sm:text-base">GitHub</h4>
-                <p className="text-white/70 text-xs sm:text-sm">github.com/gabriel</p>
+                <p className="text-white/70 text-xs sm:text-sm">github.com/gabrielfpaiva</p>
               </div>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
@@ -239,7 +239,7 @@ export default function Social() {
               </div>
               <div>
                 <h4 className="text-white font-medium text-sm sm:text-base">Instagram</h4>
-                <p className="text-white/70 text-xs sm:text-sm">instagram.com/gabriel</p>
+                <p className="text-white/70 text-xs sm:text-sm">instagram.com/gabrielfnandes</p>
               </div>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>

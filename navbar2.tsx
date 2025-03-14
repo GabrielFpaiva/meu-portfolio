@@ -3,16 +3,16 @@
 import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { Home, User, Code, Layers, Share2, Heart, Menu, MoveHorizontal, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Home, User, Code, Layers, Share2, Heart, Menu, X, MoveHorizontal } from "lucide-react"
 
 const navItems = [
-  { name: "Home", icon: <Home className="w-4 h-4 text-orange-400" />, href: "#home" },
-  { name: "About", icon: <User className="w-4 h-4" />, href: "#about" },
-  { name: "Vibe", icon: <Heart className="w-4 h-4 text-orange-400" />, href: "#my-tastes" },
-  { name: "Skills", icon: <Code className="w-4 h-4" />, href: "#skills" },
-  { name: "Projects", icon: <Layers className="w-4 h-4 text-orange-400" />, href: "#projects" },
-  { name: "Social", icon: <Share2 className="w-4 h-4" />, href: "#social" },
+  { name: "Home", icon: <Home className="w-5 h-5" />, href: "#home" },
+  { name: "About", icon: <User className="w-5 h-5" />, href: "#about" },
+  { name: "My Tastes", icon: <Heart className="w-5 h-5 text-orange-400" />, href: "#my-tastes" },
+  { name: "Skills", icon: <Code className="w-5 h-5" />, href: "#skills" },
+  { name: "Projects", icon: <Layers className="w-5 h-5" />, href: "#projects" },
+  { name: "Social", icon: <Share2 className="w-5 h-5" />, href: "#social" },
 ]
 
 export default function Navbar() {
@@ -27,7 +27,7 @@ export default function Navbar() {
   useEffect(() => {
     // Check if we're on mobile
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 920)
+      setIsMobile(window.innerWidth < 640)
     }
 
     checkMobile()
@@ -138,7 +138,11 @@ export default function Navbar() {
               <span className="hidden sm:inline text-sm font-medium">{item.name}</span>
               {activeSection === item.href.substring(1) && (
                 <motion.div
-                  className={`absolute inset-0 rounded-full -z-10 bg-gradient-to-r from-blue-600 to-orange-500`}
+                  className={`absolute inset-0 rounded-full -z-10 ${
+                    item.href === "#my-tastes"
+                      ? "bg-gradient-to-r from-blue-600 to-orange-500"
+                      : "bg-gradient-to-r from-blue-600 to-indigo-600"
+                  }`}
                   layoutId="activeNavSection"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />

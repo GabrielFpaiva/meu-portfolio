@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { FileDown, ExternalLink } from "lucide-react"
 
 export default function About() {
   return (
@@ -54,11 +55,32 @@ export default function About() {
               user-friendly applications. My journey in tech has been driven by curiosity and a desire to bring creative
               ideas to life.
             </p>
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed">
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6">
               With experience across various technologies and frameworks, I enjoy tackling complex problems and turning
               them into elegant solutions. When I'm not coding, you'll find me exploring new technologies, contributing
               to open-source projects, or sharing knowledge with the developer community.
             </p>
+
+            {/* Botão de download do CV */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex justify-center md:justify-start"
+            >
+              <a
+                href="/cv.pdf"
+                download="Gabriel_Fernandes_CV.pdf"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-orange-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+              >
+                <FileDown className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                <span>Download CV</span>
+                <div className="ml-2 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+                  <ExternalLink className="w-3 h-3 text-white" />
+                </div>
+              </a>
+            </motion.div>
           </div>
 
           <div className="relative h-56 sm:h-64 md:h-full rounded-2xl overflow-hidden">

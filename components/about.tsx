@@ -4,6 +4,28 @@ import { motion } from "framer-motion"
 import { FileDown, ExternalLink } from "lucide-react"
 
 export default function About() {
+  // Bolhas com posições e tamanhos fixos em vez de aleatórios
+  const backgroundBubbles = [
+    {
+      width: "280px",
+      height: "280px",
+      left: "70%",
+      top: "20%",
+    },
+    {
+      width: "220px",
+      height: "220px",
+      left: "20%",
+      top: "60%",
+    },
+    {
+      width: "180px",
+      height: "180px",
+      left: "50%",
+      top: "30%",
+    },
+  ]
+
   return (
     <motion.section
       className="py-12 md:py-16 relative"
@@ -13,23 +35,23 @@ export default function About() {
       viewport={{ once: true }}
     >
       <div className="absolute inset-0 pointer-events-none">
-        {/* Reduce the number of background elements */}
-        {[...Array(3)].map((_, i) => (
+        {/* Bolhas de fundo com valores fixos em vez de aleatórios */}
+        {backgroundBubbles.map((bubble, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 opacity-15"
             style={{
-              width: `${Math.random() * 300 + 100}px`,
-              height: `${Math.random() * 300 + 100}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width: bubble.width,
+              height: bubble.height,
+              left: bubble.left,
+              top: bubble.top,
             }}
             animate={{
               x: [0, 30, 0],
               y: [0, 50, 0],
             }}
             transition={{
-              duration: 30, // Even slower animation
+              duration: 30 + i * 5, // Duração diferente para cada bolha
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}

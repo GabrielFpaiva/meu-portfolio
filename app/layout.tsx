@@ -1,20 +1,28 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type React from "react"
+import "./globals.css"
+import { Inter } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
 
-export const metadata: Metadata = {
-  title: 'Gabriel F Paiva',
-  description: 'Portfólio de Gabriel Fernandes Paiva, desenvolvedor full stack e mobile.',
-  generator: 'g7.dev',
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata = {
+  title: "Gabriel Fernandes Paiva - Portfolio",
+  description: "Full Stack and Mobile Developer Portfolio",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
+

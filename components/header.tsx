@@ -125,7 +125,7 @@ export default function Header() {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-400 animate-gradient-xy opacity-20" />
           <Image
-            src="/placeholder.svg?height=500&width=500"
+            src="/user1.png?height=500&width=500"
             alt="Gabriel Fernandes Paiva"
             fill
             className="object-cover z-10"

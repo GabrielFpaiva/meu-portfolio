@@ -40,13 +40,13 @@ const projects = [
   },
   {
     id: 4,
-    title: "Fitness Tracking App",
+    title: "Course Plataform",
     description:
-      "A mobile application for tracking fitness activities, built with Flutter and Firebase. Features include workout logging, progress tracking, and personalized recommendations.",
+      "A responsive online course platform with light and dark themes, interactive features, filterable categories, and smooth animations.",
     image: "/placeholder.svg?height=400&width=600",
     tags: ["Flutter", "Firebase", "Dart", "Google Fit API"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    github: "https://github.com/GabrielFpaiva/course-plataform",
+    demo: "https://course-platform-neon.vercel.app/",
     color: "from-blue-500 to-orange-400",
   },
 ]

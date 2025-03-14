@@ -167,7 +167,7 @@ export default function Social() {
 
           <div className="space-y-3 sm:space-y-5">
             <a
-              href="mailto:gabriel@example.com"
+              href="mailto:gabrielpaiva.jm@gmail.com"
               className="flex items-center p-3 sm:p-4 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group"
             >
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 sm:mr-4 group-hover:bg-orange-500/30 transition-colors">
@@ -181,7 +181,7 @@ export default function Social() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/GabrielFpaiva"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-3 sm:p-4 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group"
@@ -191,13 +191,13 @@ export default function Social() {
               </div>
               <div>
                 <h4 className="text-white font-medium text-sm sm:text-base">GitHub</h4>
-                <p className="text-white/70 text-xs sm:text-sm">github.com/gabrielfpaiva</p>
+                <p className="text-white/70 text-xs sm:text-sm">github.com/GabrielFpaiva</p>
               </div>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/gabriel-fernandes-paiva-b948b2209/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-3 sm:p-4 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group"
@@ -213,7 +213,7 @@ export default function Social() {
             </a>
 
             <a
-              href="https://twitter.com"
+              href="https://x.com/gfernandes_73"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-3 sm:p-4 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group"
@@ -223,13 +223,13 @@ export default function Social() {
               </div>
               <div>
                 <h4 className="text-white font-medium text-sm sm:text-base">Twitter</h4>
-                <p className="text-white/70 text-xs sm:text-sm">twitter.com/gabriel</p>
+                <p className="text-white/70 text-xs sm:text-sm">twitter.com/gfernandes_73</p>
               </div>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
 
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/gabriel_fnandes/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-3 sm:p-4 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group"

@@ -5,6 +5,9 @@ import { motion } from "framer-motion"
 import { Music, Gamepad2, ExternalLink, Clock, Heart } from "lucide-react"
 import { getLastPlayedTrack } from "@/lib/spotify"
 import { getLastPlayedGame, type SteamGame } from "@/lib/steam"
+import { useLanguage } from "@/context/language-context"
+import { formatLastPlayed, formatPlaytime } from "@/lib/i18n/translations"
+
 
 interface Track {
   name: string
@@ -15,6 +18,7 @@ interface Track {
 }
 
 export default function MyTastes() {
+  const { t } = useLanguage()
   const [track, setTrack] = useState<Track>({
     name: "Blinding Lights",
     artist: "The Weeknd",
@@ -104,7 +108,7 @@ export default function MyTastes() {
         viewport={{ once: true }}
       >
         <Heart className="inline-block w-8 h-8 mr-2 text-orange-400" />
-        What I'm Into Now
+        {t.myTastes.title}
       </motion.h2>
 
       <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
@@ -116,7 +120,7 @@ export default function MyTastes() {
                 <Music className="w-4 h-4 md:w-5 md:h-5 text-green-400" />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-white">
-              Last Played on Spotify
+              {t.myTastes.spotify}
               </h3>
             </div>
 
@@ -137,7 +141,7 @@ export default function MyTastes() {
                   {track.artist}
                 </p>
                 <p className="text-white/60 text-xs md:text-sm mb-3 md:mb-4">
-                  Album: {track.album}
+                {track.album}
                 </p>
 
                 <a
@@ -146,7 +150,7 @@ export default function MyTastes() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 md:gap-2 bg-green-500 hover:bg-green-600 text-white font-medium py-1 px-2 md:py-1.5 md:px-3 rounded-full transition-colors text-xs md:text-sm"
                 >
-                  <span>Listen on Spotify</span>
+                  <span>{t.myTastes.listenOn}</span>
                   <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5" />
                 </a>
               </div>
@@ -162,7 +166,7 @@ export default function MyTastes() {
                 <Gamepad2 className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-white">
-                Last Played on Steam
+              {t.myTastes.steam}
               </h3>
             </div>
 
@@ -179,12 +183,12 @@ export default function MyTastes() {
                 <div className="flex items-center justify-center sm:justify-start mb-2">
                   <Clock className="w-3 h-3 md:w-4 md:h-4 text-blue-400 mr-1.5" />
                   <p className="text-white/80 text-xs md:text-sm">
-                    {formatPlaytime(game.playtime)} total playtime
+                    {formatPlaytime(game.playtime)} {t.myTastes.totalPlaytime}
                   </p>
                 </div>
 
                 <p className="text-white/60 text-xs md:text-sm mb-3 md:mb-4">
-                  Last played: {formatLastPlayed(game.lastPlayed)}
+                {t.myTastes.lastPlayed} {formatLastPlayed(game.lastPlayed)}
                 </p>
 
                 <a
@@ -193,7 +197,7 @@ export default function MyTastes() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 md:gap-2 bg-blue-500 hover:bg-blue-600 text-white font-medium py-1 px-2 md:py-1.5 md:px-3 rounded-full transition-colors text-xs md:text-sm"
                 >
-                  <span>View on Steam</span>
+                  <span>{t.myTastes.viewOn}</span>
                   <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5" />
                 </a>
               </div>

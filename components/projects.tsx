@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
 
 const projects = [
   {
@@ -53,6 +54,7 @@ const projects = [
 
 // Optimize the Projects section for better performance
 export default function Projects() {
+  const { t } = useLanguage()
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
   // Detect if device is mobile
@@ -84,14 +86,14 @@ export default function Projects() {
         transition={{ type: "spring", stiffness: 70 }}
         viewport={{ once: true }}
       >
-        Personal Projects
+        {t.projects.title}
       </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
         {projects.map((project) => (
           <motion.div
             key={project.id}
-            className="relative group rounded-2xl overflow-hidden h-[300px] sm:h-[350px] md:h-[400px] bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl"
+            className="relative group rounded-2xl overflow-hidden h-[250px] sm:h-[300px] md:h-[400px] bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl"
             onMouseEnter={() => !isMobile && setHoveredProject(project.id)}
             onMouseLeave={() => !isMobile && setHoveredProject(null)}
             onClick={() => isMobile && setHoveredProject(hoveredProject === project.id ? null : project.id)}
@@ -119,8 +121,8 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="absolute inset-0 z-20 p-4 sm:p-6 flex flex-col justify-end">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">{project.title}</h3>
+            <div className="absolute inset-0 z-20 p-3 sm:p-4 md:p-6 flex flex-col justify-end">
+              <h3 className="text-base sm:text-lg md:text-2xl font-bold text-white mb-1 sm:mb-2">{project.title}</h3>
 
               <AnimatePresence>
                 {(hoveredProject === project.id || isMobile) && (
@@ -130,11 +132,11 @@ export default function Projects() {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="text-white/90 mb-3 sm:mb-4 text-xs sm:text-sm md:text-base line-clamp-3">
+                    <p className="text-white/90 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base line-clamp-3">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
@@ -153,7 +155,7 @@ export default function Projects() {
                         className="flex items-center gap-1 sm:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur-sm rounded-lg text-white hover:bg-white/30 transition-colors text-xs sm:text-sm md:text-base"
                       >
                         <Github className="w-3 h-3 sm:w-4 sm:h-4" />
-                        <span>GitHub</span>
+                        <span>{t.projects.github}</span>
                       </a>
                       <a
                         href={project.demo}
@@ -162,7 +164,7 @@ export default function Projects() {
                         className="flex items-center gap-1 sm:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-orange-500/70 backdrop-blur-sm rounded-lg text-white hover:bg-orange-500/90 transition-colors text-xs sm:text-sm md:text-base"
                       >
                         <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                        <span>Live Demo</span>
+                        <span>{t.projects.liveDemo}</span>
                       </a>
                     </div>
                   </motion.div>

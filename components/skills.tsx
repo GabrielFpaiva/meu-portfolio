@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Code, Database, Server, Smartphone, Layers, Palette } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
 
 const skills = [
   {
@@ -79,6 +80,7 @@ const skills = [
 
 // Optimize the Skills section for better performance
 export default function Skills() {
+  const { t } = useLanguage()
   const [activeCategory, setActiveCategory] = useState(skills[0].category)
 
   const activeCategoryData = skills.find((skill) => skill.category === activeCategory)
@@ -98,7 +100,7 @@ export default function Skills() {
         transition={{ type: "spring", stiffness: 70 }}
         viewport={{ once: true }}
       >
-        Skills & Technologies
+        {t.skills.title}
       </motion.h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 md:mb-12">
@@ -131,7 +133,7 @@ export default function Skills() {
 
       <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/20">
         <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-center text-white">
-          {activeCategoryData?.category} Technologies
+          {activeCategoryData?.category} {t.skills.technologies}
         </h3>
 
         <div className="space-y-4 sm:space-y-6">

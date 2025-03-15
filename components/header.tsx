@@ -2,10 +2,13 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useTypewriter, Cursor } from "react-simple-typewriter"
+import { useLanguage } from "@/context/language-context"
 
 export default function Header() {
+  const { t } = useLanguage()
+
   const [text] = useTypewriter({
-    words: ["Hello, I'm Gabriel Fernandes Paiva!", "Full Stack Developer", "Mobile Developer", "Creative Coder"],
+    words: t.header.title,
     loop: true,
     delaySpeed: 2000,
   })
@@ -145,9 +148,7 @@ export default function Header() {
             </span>
             <Cursor cursorColor="#f97316" />
           </h1>
-          <p className="text-base sm:text-xl text-white/80 max-w-2xl">
-            Crafting beautiful, interactive experiences for web and mobile
-          </p>
+          <p className="text-base sm:text-xl text-white/80 max-w-2xl">{t.header.subtitle}</p>
         </motion.div>
       </div>
     </section>

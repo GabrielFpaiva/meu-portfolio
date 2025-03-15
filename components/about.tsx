@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion"
 import { FileDown, ExternalLink } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
 
 export default function About() {
+  const { t } = useLanguage()
+
   // Bolhas com posições e tamanhos fixos em vez de aleatórios
   const backgroundBubbles = [
     {
@@ -67,21 +70,13 @@ export default function About() {
           transition={{ type: "spring", stiffness: 70 }}
           viewport={{ once: true }}
         >
-          About Me
+          {t.about.title}
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
           <div>
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-4">
-              I'm a passionate Full Stack and Mobile developer with a love for creating beautiful, functional, and
-              user-friendly applications. My journey in tech has been driven by curiosity and a desire to bring creative
-              ideas to life.
-            </p>
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6">
-              With experience across various technologies and frameworks, I enjoy tackling complex problems and turning
-              them into elegant solutions. When I'm not coding, you'll find me exploring new technologies, contributing
-              to open-source projects, or sharing knowledge with the developer community.
-            </p>
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-4">{t.about.description1}</p>
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6">{t.about.description2}</p>
 
             {/* Botão de download do CV */}
             <motion.div
@@ -97,7 +92,7 @@ export default function About() {
                 className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-orange-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
               >
                 <FileDown className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                <span>Download CV</span>
+                <span>{t.about.downloadCV}</span>
                 <div className="ml-2 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
                   <ExternalLink className="w-3 h-3 text-white" />
                 </div>
@@ -109,23 +104,23 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-500 animate-pulse" />
             <div className="absolute inset-0 flex items-center justify-center text-white text-opacity-90 p-4 sm:p-6">
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 w-full">
-                <h3 className="text-lg sm:text-xl font-bold mb-2">Quick Facts</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2">{t.about.quickFacts}</h3>
                 <ul className="space-y-2">
                   <li className="flex items-center">
                     <span className="w-3 h-3 bg-green-400 rounded-full mr-2"></span>
-                    Full Stack Developer
+                    {t.about.fullStack}
                   </li>
                   <li className="flex items-center">
                     <span className="w-3 h-3 bg-blue-400 rounded-full mr-2"></span>
-                    Mobile App Developer
+                    {t.about.mobile}
                   </li>
                   <li className="flex items-center">
                     <span className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></span>
-                    Creative Problem Solver
+                    {t.about.creative}
                   </li>
                   <li className="flex items-center">
                     <span className="w-3 h-3 bg-pink-400 rounded-full mr-2"></span>
-                    Tech Enthusiast
+                    {t.about.techEnthusiast}
                   </li>
                 </ul>
               </div>

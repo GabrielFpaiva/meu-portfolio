@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion"
 import { Heart } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
 
 export default function Footer() {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -23,7 +25,7 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <p className="text-white/80 mb-2 flex items-center justify-center">
-            Developed with
+            {t.footer.developedWith}
             <motion.span
               className="mx-2 text-orange-500 inline-block"
               animate={{
@@ -39,7 +41,9 @@ export default function Footer() {
             </motion.span>
             by Gabriel Fernandes Paiva
           </p>
-          <p className="text-white/60 text-sm">© {currentYear} All Rights Reserved</p>
+          <p className="text-white/60 text-sm">
+            © {currentYear} {t.footer.rights}
+          </p>
         </motion.div>
 
         <motion.div

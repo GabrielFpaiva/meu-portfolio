@@ -5,9 +5,12 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Github, Linkedin, Instagram, Twitter, Mail, Send, ArrowRight } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
 
 // Optimize the Social section for better performance
 export default function Social() {
+  const { t } = useLanguage()
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -56,7 +59,7 @@ export default function Social() {
         transition={{ type: "spring", stiffness: 70 }}
         viewport={{ once: true }}
       >
-        Get In Touch
+       {t.social.title}
       </motion.h2>
 
       <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
@@ -68,7 +71,7 @@ export default function Social() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-white">Send Me a Message</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-white">{t.social.sendMessage}e</h3>
 
           {isSubmitted ? (
             <motion.div
@@ -79,16 +82,16 @@ export default function Social() {
               <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-teal-500/30 mb-3 sm:mb-4">
                 <Send className="w-6 h-6 sm:w-8 sm:h-8 text-teal-500" />
               </div>
-              <h4 className="text-lg sm:text-xl font-bold text-white mb-2">Message Sent!</h4>
+              <h4 className="text-lg sm:text-xl font-bold text-white mb-2">{t.social.sent}</h4>
               <p className="text-white/80 text-sm sm:text-base">
-                Thank you for reaching out. I'll get back to you soon.
+              {t.social.thankYou}
               </p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               <div>
                 <label htmlFor="name" className="block text-white/80 mb-1 sm:mb-2 text-xs sm:text-sm">
-                  Your Name
+                {t.social.yourName}
                 </label>
                 <input
                   type="text"
@@ -104,7 +107,7 @@ export default function Social() {
 
               <div>
                 <label htmlFor="email" className="block text-white/80 mb-1 sm:mb-2 text-xs sm:text-sm">
-                  Your Email
+                {t.social.yourEmail}
                 </label>
                 <input
                   type="email"
@@ -120,7 +123,7 @@ export default function Social() {
 
               <div>
                 <label htmlFor="message" className="block text-white/80 mb-1 sm:mb-2 text-xs sm:text-sm">
-                  Your Message
+                {t.social.yourMessage}
                 </label>
                 <textarea
                   id="message"
@@ -142,11 +145,11 @@ export default function Social() {
                 {isSubmitting ? (
                   <div className="flex items-center">
                     <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white mr-2"></div>
-                    <span>Sending...</span>
+                    <span>{t.social.sending}</span>
                   </div>
                 ) : (
                   <div className="flex items-center">
-                    <span>Send Message</span>
+                    <span>{t.social.sendMessage}</span>
                     <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 )}
@@ -163,7 +166,7 @@ export default function Social() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-white">Connect With Me</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-white">{t.social.connectWithMe}</h3>
 
           <div className="space-y-3 sm:space-y-5">
             <a
@@ -174,7 +177,7 @@ export default function Social() {
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-orange-400" />
               </div>
               <div>
-                <h4 className="text-white font-medium text-sm sm:text-base">Email</h4>
+                <h4 className="text-white font-medium text-sm sm:text-base">{t.social.email}</h4>
                 <p className="text-white/70 text-xs sm:text-sm">gabrielpaiva.jm@gmail.com</p>
               </div>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -222,8 +225,8 @@ export default function Social() {
                 <Twitter className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-500" />
               </div>
               <div>
-                <h4 className="text-white font-medium text-sm sm:text-base">Twitter</h4>
-                <p className="text-white/70 text-xs sm:text-sm">twitter.com/gfernandes_73</p>
+                <h4 className="text-white font-medium text-sm sm:text-base">X</h4>
+                <p className="text-white/70 text-xs sm:text-sm">x.com/gfernandes_73</p>
               </div>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>

@@ -5,21 +5,25 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Home, User, Code, Layers, Share2, Heart, Menu, MoveHorizontal, X } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
 
-const navItems = [
-  { name: "Home", icon: <Home className="w-4 h-4 text-orange-400" />, href: "#home" },
-  { name: "About", icon: <User className="w-4 h-4" />, href: "#about" },
-  { name: "Vibe", icon: <Heart className="w-4 h-4 text-orange-400" />, href: "#my-tastes" },
-  { name: "Skills", icon: <Code className="w-4 h-4" />, href: "#skills" },
-  { name: "Projects", icon: <Layers className="w-4 h-4 text-orange-400" />, href: "#projects" },
-  { name: "Social", icon: <Share2 className="w-4 h-4" />, href: "#social" },
-]
 
 export default function Navbar() {
+  const { t } = useLanguage()
+
   const [activeSection, setActiveSection] = useState("home")
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+
+  const navItems = [
+    { name: t.nav.home, icon: <Home className="w-4 h-4 text-orange-400" />, href: "#home" },
+    { name: t.nav.about, icon: <User className="w-4 h-4" />, href: "#about" },
+    { name: t.nav.myTastes, icon: <Heart className="w-4 h-4 text-orange-400" />, href: "#my-tastes" },
+    { name: t.nav.skills, icon: <Code className="w-4 h-4" />, href: "#skills" },
+    { name: t.nav.projects, icon: <Layers className="w-4 h-4 text-orange-400" />, href: "#projects" },
+    { name: t.nav.social, icon: <Share2 className="w-4 h-4" />, href: "#social" },
+  ]
 
   // Referência para o botão
   const buttonRef = useRef<HTMLDivElement>(null)
